@@ -41,7 +41,7 @@ class Pessoa:
         self.telefone = telefone
         self.cpf = cpf
         self.email = email
-        self.edereco = endereco
+        self.endereco = endereco
 
 class Funcionario(Pessoa):
     def __init__(self, nome, telefone, cpf, email, endereco, clt):
