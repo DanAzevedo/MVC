@@ -15,6 +15,26 @@ class ControllerCategoria:
             print("Categoria cadastrada com sucesso!")
         else:
             print("Categoria já cadastrada no sistema!")
-            
+
+    def excluirCategoria(self, categoriaExcluir):
+        x = DaoCategoria.ler()
+        cat = list(filter(lambda x: x.categoria == categoriaExcluir, x))
+        
+        if len(cat) <= 0:
+            print("Categoria não encontrada!")
+        else:
+            for i in range(len(x)):   
+                if x[i].categoria == categoriaExcluir:
+                    del x[i]
+                    break
+            print("Categoria excluída com sucesso!")
+
+            with open('categoria.txt', 'w') as arq:    
+                for i in x:
+                    arq.writelines(i.categoria)
+                    arq.writelines('\n')
+
+
+
 a = ControllerCategoria()
 a.cadastrarCategoria('Frios')            
